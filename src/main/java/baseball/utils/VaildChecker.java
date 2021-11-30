@@ -8,10 +8,10 @@ import java.util.Set;
 
 public class VaildChecker {
 
-	//다른 사람은 inputString.length() 조차도 메서드로 뺐다.왜일까?
+	//어떤 사람은 inputString.length() 조차도 메서드로 뺐다.왜일까?
 	public boolean isValidLength(String inputString, int validNumberOfDigits) {
 		if (inputString.length() != validNumberOfDigits) {
-			throw new IllegalArgumentException("Inputted String is not " + GAME_NUMBER_OF_DIGITS + " length.");
+			throw new IllegalArgumentException(INVALID_LENGTH_MESSAGE);
 		}
 
 		return true;
@@ -51,5 +51,4 @@ public class VaildChecker {
 
 		return true;
 	}
-
 }

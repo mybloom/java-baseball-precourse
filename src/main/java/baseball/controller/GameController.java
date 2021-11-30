@@ -12,10 +12,10 @@ public class GameController {
 	public void startGame(){
 		opponent = new Opponent();
 		referee = new Referee();
+		String playNumberString = "";
 
 		opponent.createGameNumber();
-		String playNumberString = referee.requestPlayerNumber();
-		referee.checkPlayerNumber(playNumberString);
-
+		playNumberString = referee.requestPlayerNumber();
+		referee.checkPlayerNumber(opponent.getGameNumber(), playNumberString);
 	}
 }

@@ -20,4 +20,8 @@ public class Opponent {
 		System.out.println("gameNumber:" + gameNumber);
 	}
 
+	public LinkedHashSet<Integer> getGameNumber(){
+		return gameNumber;
+	}
+
 }
