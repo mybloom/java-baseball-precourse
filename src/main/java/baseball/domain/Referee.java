@@ -14,7 +14,7 @@ public class Referee {
 	VaildChecker validChecker = new VaildChecker();
 	HashMap<String, Integer> answerMap;
 
-	//입력값 판별
+	//사용자 게임넘버 입력값 판별
 	public HashMap<String, Integer> checkPlayerNumber(LinkedHashSet<Integer> gameNumberSet, String playerNumberString) {
 		LinkedHashSet<Integer> playerNumberSet;
 
@@ -25,8 +25,16 @@ public class Referee {
 		validChecker.isValidRange(playerNumberSet, GAME_MIN_NUMBER, GAME_MAX_NUMBER);
 
 		checkCorrect(gameNumberSet, playerNumberSet);
-		System.out.println("answerMap:" + answerMap);
+		//System.out.println("answerMap:" + answerMap);
 		return answerMap;
+	}
+
+	//사용자 게임 재시작 여부 입력값 판별
+	public void checkReStartGame(String gameReStartYn) {
+		validChecker.isValidLength(gameReStartYn, 1);
+		LinkedHashSet<Integer> set = validChecker.checkIntegerTypeAndToSet(gameReStartYn);
+		validChecker.isValidLength(set, 1);
+		validChecker.isValidRange(set, 1, 2);
 	}
 
 	private void checkCorrect(LinkedHashSet<Integer> gameNumberSet, LinkedHashSet<Integer> playerNumberSet) {
