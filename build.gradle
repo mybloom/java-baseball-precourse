@@ -16,3 +16,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+//2021.11.24추가
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
