@@ -17,7 +17,7 @@ public class VaildChecker {
 		return true;
 	}
 
-	public boolean isValidLength(Set<Integer> set, int validNumberOfDigits) {
+	public boolean isValidLength(LinkedHashSet<Integer> set, int validNumberOfDigits) {
 		if (set.size() != validNumberOfDigits) {
 			throw new IllegalArgumentException(INVALID_DUPLICATED_MESSAGE);
 		}
@@ -40,7 +40,7 @@ public class VaildChecker {
 	}
 
 	//설정한 범위의 값인지 확인
-	public boolean isValidRange(Set set, int min_number, int max_number) {
+	public boolean isValidRange(LinkedHashSet<Integer> set, int min_number, int max_number) {
 		Iterator<Integer> it = set.iterator();
 		while (it.hasNext()) {
 			int num = it.next();
