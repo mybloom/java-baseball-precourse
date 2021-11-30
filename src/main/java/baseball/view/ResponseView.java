@@ -5,12 +5,15 @@ import java.util.HashMap;
 import baseball.utils.Constant;
 
 public class ResponseView {
+	StringBuilder responseAnswer;
+
 	//입력값 확인 후 출력
 	public void responseAnswer(HashMap<String, Integer> answerMap) {
-		StringBuilder responseAnswer = new StringBuilder(100);
+		responseAnswer = new StringBuilder(100);
 		//map.size() == 0 이면 낫싱
 		if (answerMap.size() == 0) {
 			responseAnswer.append(Constant.RESPONSE_NOTHING_MESSAGE);
+			System.out.println(responseAnswer);
 			return;
 		}
 
