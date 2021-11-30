@@ -9,20 +9,10 @@ import java.util.List;
 
 import baseball.utils.Constant;
 import baseball.utils.VaildChecker;
-import camp.nextstep.edu.missionutils.Console;
 
 public class Referee {
 	VaildChecker validChecker = new VaildChecker();
-	String inputPlayerString = "";
-	HashMap<String, Integer> answerMap = new HashMap<>();
-
-	//사용자 입력 요청
-	public String requestPlayerNumber() {
-		System.out.print(REQUEST_INPUT_MESSAGE);
-		inputPlayerString = Console.readLine();
-
-		return inputPlayerString;
-	}
+	HashMap<String, Integer> answerMap;
 
 	//입력값 판별
 	public HashMap<String, Integer> checkPlayerNumber(LinkedHashSet<Integer> gameNumberSet, String playerNumberString) {
@@ -35,13 +25,14 @@ public class Referee {
 		validChecker.isValidRange(playerNumberSet, GAME_MIN_NUMBER, GAME_MAX_NUMBER);
 
 		checkCorrect(gameNumberSet, playerNumberSet);
-
+		System.out.println("answerMap:" + answerMap);
 		return answerMap;
 	}
 
 	private void checkCorrect(LinkedHashSet<Integer> gameNumberSet, LinkedHashSet<Integer> playerNumberSet) {
 		List<Integer> gameNumberList = new ArrayList<>(gameNumberSet);
 		List<Integer> playerNumberList = new ArrayList<>(playerNumberSet);
+		answerMap = new HashMap<>();
 
 		HashMap<String, Integer> correctResult = new HashMap<>();
 		for (int gIdx = 0; gIdx < gameNumberList.size(); gIdx++) {

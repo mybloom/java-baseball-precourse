@@ -5,10 +5,9 @@ import java.util.HashMap;
 import baseball.utils.Constant;
 
 public class ResponseView {
-	StringBuffer responseAnswer = new StringBuffer();
-
 	//입력값 확인 후 출력
 	public void responseAnswer(HashMap<String, Integer> answerMap) {
+		StringBuffer responseAnswer = new StringBuffer();
 		//map.size() == 0 이면 낫싱
 		if (answerMap.size() == 0) {
 			responseAnswer.append(Constant.RESPONSE_NOTHING_MESSAGE);
