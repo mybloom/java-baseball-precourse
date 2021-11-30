@@ -4,7 +4,6 @@ import static baseball.utils.Constant.*;
 
 import java.util.LinkedHashSet;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Opponent {
@@ -14,14 +13,11 @@ public class Opponent {
 	//서로 다른 3자리 수 설정
 	public void createGameNumber() {
 		gameNumber = new LinkedHashSet<>();
-		while (gameNumber.size() < GAME_DIGITS) {
+		while (gameNumber.size() < GAME_NUMBER_OF_DIGITS) {
 			gameNumber.add(Randoms.pickNumberInRange(GAME_MIN_NUMBER, GAME_MAX_NUMBER));
 		}
+
+		System.out.println("gameNumber:" + gameNumber);
 	}
 
-	//사용자 입력 요청
-	public void requestPlayNumber() {
-		System.out.print(REQUEST_INPUT_MESSAGE);
-		Console.readLine();
-	}
 }
