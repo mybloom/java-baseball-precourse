@@ -7,13 +7,14 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import baseball.utils.Constant;
 import baseball.utils.VaildChecker;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Referee {
 	VaildChecker validChecker = new VaildChecker();
 	String inputPlayerString = "";
-	HashMap<String, Integer> correctResult = new HashMap<>();
+	HashMap<String, Integer> answerMap = new HashMap<>();
 
 	//사용자 입력 요청
 	public String requestPlayerNumber() {
@@ -24,7 +25,7 @@ public class Referee {
 	}
 
 	//입력값 판별
-	public void checkPlayerNumber(LinkedHashSet<Integer> gameNumberSet , String playerNumberString) {
+	public HashMap<String, Integer> checkPlayerNumber(LinkedHashSet<Integer> gameNumberSet, String playerNumberString) {
 		LinkedHashSet<Integer> playerNumberSet;
 
 		//[Q] validLength 체크할 때, 유효한 길이값을 메서드에 인자로 주는 것이 좋은지, 아님 체크하는 메서드에서 체크하는 게 좋은지.
@@ -33,12 +34,12 @@ public class Referee {
 		validChecker.isValidLength(playerNumberSet, GAME_NUMBER_OF_DIGITS);
 		validChecker.isValidRange(playerNumberSet, GAME_MIN_NUMBER, GAME_MAX_NUMBER);
 
-		checkCorrectAnswer(gameNumberSet, playerNumberSet);
-		System.out.println("playerNumberSet:" + playerNumberSet);
-		System.out.println("정답확인:" + correctResult);
+		checkCorrect(gameNumberSet, playerNumberSet);
+
+		return answerMap;
 	}
 
-	private void checkCorrectAnswer(LinkedHashSet<Integer> gameNumberSet, LinkedHashSet<Integer> playerNumberSet) {
+	private void checkCorrect(LinkedHashSet<Integer> gameNumberSet, LinkedHashSet<Integer> playerNumberSet) {
 		List<Integer> gameNumberList = new ArrayList<>(gameNumberSet);
 		List<Integer> playerNumberList = new ArrayList<>(playerNumberSet);
 
@@ -60,12 +61,13 @@ public class Referee {
 
 	private void handleStrikeOrBall(boolean isEqualNumber, boolean isEqualIndex) {
 		if (isEqualNumber && isEqualIndex) {
-			correctResult.put("스트라이크", correctResult.getOrDefault("스트라이크", 0) + 1);
+			answerMap.put(Constant.RESPONSE_STRIKE_MESSAGE,
+				answerMap.getOrDefault(Constant.RESPONSE_STRIKE_MESSAGE, 0) + 1);
 		}
 
 		if (isEqualNumber && !isEqualIndex) {
-			correctResult.put("볼", correctResult.getOrDefault("볼", 0) + 1);
+			answerMap.put(Constant.RESPONSE_BALL_MESSAGE,
+				answerMap.getOrDefault(Constant.RESPONSE_BALL_MESSAGE, 0) + 1);
 		}
 	}
-
 }
