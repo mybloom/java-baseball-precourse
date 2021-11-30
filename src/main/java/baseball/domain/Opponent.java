@@ -4,6 +4,7 @@ import static baseball.utils.Constant.*;
 
 import java.util.LinkedHashSet;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Opponent {
@@ -16,5 +17,11 @@ public class Opponent {
 		while (gameNumber.size() < GAME_DIGITS) {
 			gameNumber.add(Randoms.pickNumberInRange(GAME_MIN_NUMBER, GAME_MAX_NUMBER));
 		}
+	}
+
+	//사용자 입력 요청
+	public void requestPlayNumber() {
+		System.out.print(REQUEST_INPUT_MESSAGE);
+		Console.readLine();
 	}
 }
