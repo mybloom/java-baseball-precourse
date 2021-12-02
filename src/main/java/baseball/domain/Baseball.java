@@ -27,8 +27,13 @@ public class Baseball {
 	}
 
 	private void validatePosition(int position) {
-		if (!(number >= MIN_VALUE_POSITION && number <= MAX_VALUE_POSITION)) {
+		if (!(position >= MIN_VALUE_POSITION && position <= MAX_VALUE_POSITION)) {
 			throw new IllegalArgumentException(INVALID_RANGE_MESSAGE);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "number:" + number + "/ position:" + position;
 	}
 }
