@@ -11,8 +11,8 @@
    - “숫자를 입력해주세요 : “
 3. 입력값에 대한 유효성 체크를 한다. 
    - **[예외 사항]사용자 입력 값이 서로 각기 다른 3자리 수인지 판별.**
-     - 3자리 확인 : Process finished with exit code 1, catch했을 때는 exit code 0이였던 듯하다.
-     - 숫자 타입 확인 : Process finished with exit code 1
+     - 3자리 확인 
+     - 숫자 타입 확인
      - 중복값 유무 확인
      - 1~9까지 범위 확인
      - 입력값의 유효성이 부적합할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
