@@ -14,7 +14,7 @@ public class GameController {
 		System.out.println(REQUEST_BASEBALLS_MESSAGE);
 		String numbers = Console.readLine();
 
-		gameService.setUserNumber(numbers);
+		gameService.setUserNumber(numbers.trim());
 	}
 
 	//게임 종료 후, 게임재시작 여부 요청// 또는 getIsRestart() 이건 Controller로 가도 되는 듯.

@@ -6,7 +6,7 @@ import baseball.domain.Player;
 public class GameService {
 	//도메인 객체 생성
 	Player computer = new Player();
-	String userNumber = "";
+	String userInput = "";
 
 	//게임 진행 flow
 	private void doGame() {
@@ -16,8 +16,8 @@ public class GameService {
 
 	}
 
-	public void setUserNumber(String userNumber) {
-		this.userNumber = userNumber;
+	public void setUserNumber(String userInput) {
+		this.userInput = userInput;
 	}
 
 	//입력값이 정답이 될때까지 반복
