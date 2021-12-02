@@ -40,6 +40,7 @@ public class Player {
 		Validator.length(userInput, NUMBER_OF_BASEBALL);
 		Validator.isNumber(userInput);
 		Validator.range(userInput, Baseball.MIN_VALUE_NUMBER, Baseball.MAX_VALUE_NUMBER);
+		Validator.duplicateNumber(userInput);
 	}
 
 	//게임 재시작, 종료 선택
