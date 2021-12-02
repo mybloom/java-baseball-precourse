@@ -32,11 +32,14 @@ public class Player {
 	//사용자 게임넘버 Baseball객체로 생성
 	public void convertBaseballs(String userInput) {
 		//123 이면, p3n1, p2n2, p1n3
+		validateUserInput(userInput);
+
+	}
+
+	private void validateUserInput(String userInput) {
 		Validator.length(userInput, NUMBER_OF_BASEBALL);
 		Validator.isNumber(userInput);
 		Validator.range(userInput, Baseball.MIN_VALUE_NUMBER, Baseball.MAX_VALUE_NUMBER);
-		
-
 	}
 
 	//게임 재시작, 종료 선택
