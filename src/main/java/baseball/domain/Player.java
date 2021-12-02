@@ -19,16 +19,18 @@ public class Player {
 		}
 
 		Iterator<Integer> it = numbers.iterator();
-		int position = 1;
+		int position = 3;
 		while (it.hasNext()) {
-			baseballs.add(new Baseball(it.next(), position++));
+			baseballs.add(new Baseball(it.next(), position--));
 		}
 
 		System.out.println("computer.baseballs :" + baseballs);
 	}
 
-	//game player의 게임넘버 선택
-	public void chooseBaseballs() {
+	//사용자 게임넘버 Balseball객체로 생성
+	public void chooseBaseballs(String userNumber) {
+		//123 이면, p3n1, p2n2, p1n3
+		
 
 	}
 

@@ -2,7 +2,7 @@ package baseball.view;
 
 public class OutputView {
 	//요청메세지
-	public static final String requestBaseballsMessage = "숫자를 입력해주세요 : ";
+		public static final String REQUEST_BASEBALLS_MESSAGE = "숫자를 입력해주세요 : ";
 
 	//사용자 입력값에 대한 응답메세지
 	public static final String strike = "스트라이크";

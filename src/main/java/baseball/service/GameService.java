@@ -6,10 +6,18 @@ import baseball.domain.Player;
 public class GameService {
 	//도메인 객체 생성
 	Player computer = new Player();
+	String userNumber = "";
 
-	//컴퓨터 게임숫자 선택
-	private void createBaseballs() {
+	//게임 진행 flow
+	private void doGame() {
+		//컴퓨터 게임숫자 선택
 		computer.createBaseballs();
+		//사용자 입력값 게임숫자로 변환
+
+	}
+
+	public void setUserNumber(String userNumber) {
+		this.userNumber = userNumber;
 	}
 
 	//입력값이 정답이 될때까지 반복
