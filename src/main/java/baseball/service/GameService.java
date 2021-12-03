@@ -28,14 +28,16 @@ public class GameService {
 	}
 
 	//사용자 입력값 게임숫자로 변환, + 힌트얻기 > 한 메서드에 2개 기능
-	public void convertBaseballs(String userInput) {
+	public Map<HintType, Integer> convertBaseballs(String userInput) {
 		userBaseballs = user.convertBaseballs(userInput);
 		hint = new Hint(computerBaseballs, userBaseballs);
-		hint.setResult(hint.getResult());
+		//hint.setResult(hint.getResult());
+
+		return hint.getResult();
 	}
 
 	//힌트 출력
-	public void getHint() {
+	public void responseHint() {
 		outputView.responseHint(hint);
 	}
 

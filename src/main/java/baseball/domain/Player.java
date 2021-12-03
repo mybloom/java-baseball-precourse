@@ -11,12 +11,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Player {
 	public static final int NUMBER_OF_BASEBALL = 3;
-	private final List<Baseball> baseballs = new ArrayList<>(NUMBER_OF_BASEBALL);
+	private List<Baseball> baseballs;
 
 	//게임넘버(숫자/위치)->Baseballs 선택 : 컴퓨터
 	public List<Baseball> createBaseballs() {
 		Set<Integer> numbers = createNumbers();
 
+		baseballs = new ArrayList<>(NUMBER_OF_BASEBALL);
 		Iterator<Integer> it = numbers.iterator();
 		int position = NUMBER_OF_BASEBALL;
 		while (it.hasNext()) {
@@ -41,6 +42,7 @@ public class Player {
 		//123 이면, n1p3, n2p2, n3p1
 		validateUserInput(userInput);
 
+		baseballs = new ArrayList<>(NUMBER_OF_BASEBALL);
 		int position = NUMBER_OF_BASEBALL;
 		for (char chr : userInput.toCharArray()) {
 			baseballs.add(new Baseball(Validator.toInt(chr), position--));

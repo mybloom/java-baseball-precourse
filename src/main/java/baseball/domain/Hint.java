@@ -28,9 +28,9 @@ public class Hint {
 		return result;
 	}
 
-	public void setResult(Map<HintType, Integer> result){
-		this.result = result;
-	}
+	// public void setResult(Map<HintType, Integer> result){
+	// 	this.result = result;
+	// }
 
 	private void compare() {
 		int strikeCount = 0;

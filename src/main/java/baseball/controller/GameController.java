@@ -2,6 +2,7 @@ package baseball.controller;
 
 import static baseball.view.OutputView.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import baseball.domain.HintType;
@@ -14,10 +15,15 @@ public class GameController {
 
 	//게임 실행
 	public void run() {
+		Map<HintType, Integer> resultHint = new HashMap<>();
+
 		gameService.createBaseballs();
-		gameService.convertBaseballs(requestBaseballs());
-		//gameService.setUserInput(requestBaseballs());
-		gameService.getHint();
+		while (resultHint.getOrDefault(HintType.STRIKE, 0) < 3) {
+			resultHint = gameService.convertBaseballs(requestBaseballs());
+			gameService.responseHint();
+		}
+
+
 	}
 
 	//사용자가 숫자 입력하도록 입력 메세지 송출
@@ -32,7 +38,7 @@ public class GameController {
 	}
 
 	//게임 종료 후, 게임재시작 여부 요청// 또는 getIsRestart() 이건 Controller로 가도 되는 듯.
-	public void requestIsRestart() {
-
+	private String requestIsRestart() {
+		return Console.readLine();
 	}
 }
