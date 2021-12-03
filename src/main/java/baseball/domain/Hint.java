@@ -13,6 +13,8 @@ public class Hint {
 		result = new HashMap<>();
 		result.put(HintType.STRIKE, 0);
 		result.put(HintType.BALL, 0);
+		result.put(HintType.NOTHING, 0);
+
 		this.computerBaseballs = computerBaseballs;
 		this.userBaseballs = userBaseballs;
 	}
@@ -21,7 +23,13 @@ public class Hint {
 	public Map<HintType, Integer> getResult() {
 		compare();
 		makeResult();
+
+		//System.out.println("hint.result:" + result);
 		return result;
+	}
+
+	public void setResult(Map<HintType, Integer> result){
+		this.result = result;
 	}
 
 	private void compare() {

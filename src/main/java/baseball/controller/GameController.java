@@ -2,6 +2,9 @@ package baseball.controller;
 
 import static baseball.view.OutputView.*;
 
+import java.util.Map;
+
+import baseball.domain.HintType;
 import baseball.service.GameService;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -14,6 +17,7 @@ public class GameController {
 		gameService.createBaseballs();
 		gameService.convertBaseballs(requestBaseballs());
 		//gameService.setUserInput(requestBaseballs());
+		gameService.getHint();
 	}
 
 	//사용자가 숫자 입력하도록 입력 메세지 송출

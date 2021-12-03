@@ -7,6 +7,7 @@ import baseball.domain.Baseball;
 import baseball.domain.Hint;
 import baseball.domain.HintType;
 import baseball.domain.Player;
+import baseball.view.OutputView;
 
 //도메인 간 순서 보장 : 흐름제어
 public class GameService {
@@ -14,6 +15,7 @@ public class GameService {
 	Player computer = new Player();
 	Player user = new Player();
 	Hint hint;
+	OutputView outputView = new OutputView();
 	//인스턴스 변수로 있어야할까, 좋은 방법은 없을까
 	List<Baseball> computerBaseballs;
 	List<Baseball> userBaseballs;
@@ -29,14 +31,12 @@ public class GameService {
 	public void convertBaseballs(String userInput) {
 		userBaseballs = user.convertBaseballs(userInput);
 		hint = new Hint(computerBaseballs, userBaseballs);
-		Map<HintType, Integer> hintResult =  hint.getResult();
-
-		System.out.println("hint.result:" + hintResult);
+		hint.setResult(hint.getResult());
 	}
 
-	//user Baseballs값 힌트얻기
+	//힌트 출력
 	public void getHint() {
-
+		outputView.responseHint(hint);
 	}
 
 	//입력값이 정답이 될때까지 반복
