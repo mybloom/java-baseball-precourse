@@ -3,8 +3,8 @@ package baseball.domain;
 import static baseball.view.ErrorMessage.*;
 
 public class Baseball {
-	private final int number; //number는 1~9다.
-	private final int position; //position은 1,2,3이다. [Q]이걸 정의할 수 있는 방법 없나? : 유효성검사
+	public final int number; //number는 1~9다.
+	public final int position; //position은 1,2,3이다. [Q]이걸 정의할 수 있는 방법 없나? : 1)유효성검사,2)enum을 활용할수도?
 
 	public static final int MIN_VALUE_NUMBER = 1;
 	public static final int MAX_VALUE_NUMBER = 9;
@@ -30,6 +30,14 @@ public class Baseball {
 		if (!(position >= MIN_VALUE_POSITION && position <= MAX_VALUE_POSITION)) {
 			throw new IllegalArgumentException(INVALID_RANGE_MESSAGE);
 		}
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Baseball)) {
+			return false;
+		}
+		return this.number == ((Baseball)obj).number && this.position == ((Baseball)obj).position;
 	}
 
 	@Override

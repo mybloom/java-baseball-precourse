@@ -14,7 +14,7 @@ public class Player {
 	private final List<Baseball> baseballs = new ArrayList<>(NUMBER_OF_BASEBALL);
 
 	//게임넘버(숫자/위치)->Baseballs 선택 : 컴퓨터
-	public void createBaseballs() {
+	public List<Baseball> createBaseballs() {
 		Set<Integer> numbers = createNumbers();
 
 		Iterator<Integer> it = numbers.iterator();
@@ -24,6 +24,8 @@ public class Player {
 		}
 
 		System.out.println("computer.baseballs :" + baseballs);
+
+		return baseballs;
 	}
 
 	private Set<Integer> createNumbers() {
@@ -35,16 +37,17 @@ public class Player {
 	}
 
 	//사용자 게임넘버 Baseball객체로 생성
-	public void convertBaseballs(String userInput) {
+	public List<Baseball> convertBaseballs(String userInput) {
 		//123 이면, n1p3, n2p2, n3p1
 		validateUserInput(userInput);
 
-		int idx = NUMBER_OF_BASEBALL;
+		int position = NUMBER_OF_BASEBALL;
 		for (char chr : userInput.toCharArray()) {
-			baseballs.add(new Baseball(Validator.toInt(chr), idx--));
+			baseballs.add(new Baseball(Validator.toInt(chr), position--));
 		}
 
-		System.out.println("user.baseballs:" + baseballs) ;
+		System.out.println("user.baseballs:" + baseballs);
+		return baseballs;
 	}
 
 	private void validateUserInput(String userInput) {
