@@ -22,23 +22,19 @@ public class GameController {
 			resultHint = gameService.convertBaseballs(requestBaseballs());
 			gameService.responseHint();
 		}
-
-
+	
+		//구현중
+		gameService.isReStart(requestIsRestart());
 	}
 
 	//사용자가 숫자 입력하도록 입력 메세지 송출
 	private String requestBaseballs() {
 		System.out.print(REQUEST_BASEBALLS_MESSAGE);
-		return Console.readLine();
+		return Console.readLine().trim();
 	}
 
-	//사용자에게 게임 힌트 송출
-	public void responseHint() {
-
-	}
-
-	//게임 종료 후, 게임재시작 여부 요청// 또는 getIsRestart() 이건 Controller로 가도 되는 듯.
+	//게임 종료 후, 게임재시작 여부 요청
 	private String requestIsRestart() {
-		return Console.readLine();
+		return Console.readLine().trim();
 	}
 }

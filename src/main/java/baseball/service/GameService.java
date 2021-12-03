@@ -20,8 +20,6 @@ public class GameService {
 	List<Baseball> computerBaseballs;
 	List<Baseball> userBaseballs;
 
-	//게임 진행 flow
-
 	//컴퓨터 게임숫자 선택
 	public void createBaseballs() {
 		computerBaseballs = computer.createBaseballs();
@@ -31,7 +29,6 @@ public class GameService {
 	public Map<HintType, Integer> convertBaseballs(String userInput) {
 		userBaseballs = user.convertBaseballs(userInput);
 		hint = new Hint(computerBaseballs, userBaseballs);
-		//hint.setResult(hint.getResult());
 
 		return hint.getResult();
 	}
@@ -41,16 +38,9 @@ public class GameService {
 		outputView.responseHint(hint);
 	}
 
-	//입력값이 정답이 될때까지 반복
-
-	//게임 재시작 여부 입력값에 대한 유효성 체크. 앞에 객체명.checkValid()에서 더 쉽게 알거나 메소드명에 목적어가 들어가거나 (무엇을 체크한다는)
-	private void checkValid() {
-
-	}
-
-	//게임 재시작
-	private void reStart() {
-
+	//게임 재시작 여부
+	public void isReStart(String userInput) {
+		user.chooseIsRestart(userInput);
 	}
 
 	//게임 종료
