@@ -15,6 +15,16 @@ public class GameController {
 
 	//게임 실행
 	public void run() {
+		boolean isRestart = true;
+
+		while (isRestart) {
+			startGameflow();
+			isRestart = gameService.isRestart(requestIsRestart());
+		}
+	}
+
+	//게임 진행
+	public void startGameflow() {
 		Map<HintType, Integer> resultHint = new HashMap<>();
 
 		gameService.createBaseballs();
@@ -22,9 +32,6 @@ public class GameController {
 			resultHint = gameService.convertBaseballs(requestBaseballs());
 			gameService.responseHint();
 		}
-	
-		//구현중
-		gameService.isReStart(requestIsRestart());
 	}
 
 	//사용자가 숫자 입력하도록 입력 메세지 송출

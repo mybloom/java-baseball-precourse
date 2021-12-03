@@ -46,6 +46,7 @@ public class OutputView {
 		}
 
 		if (result.get(HintType.STRIKE) == 3) {
+			responseAnswer.append(System.getProperty("line.separator"));
 			responseAnswer.append(SUCCESS_MESSAGE);
 		}
 

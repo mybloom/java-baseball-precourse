@@ -39,12 +39,7 @@ public class GameService {
 	}
 
 	//게임 재시작 여부
-	public void isReStart(String userInput) {
-		user.chooseIsRestart(userInput);
-	}
-
-	//게임 종료
-	private void stop() {
-
+	public boolean isRestart(String userInput) {
+		return user.chooseIsRestart(userInput);
 	}
 }
